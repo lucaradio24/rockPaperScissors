@@ -9,15 +9,20 @@ function getComputerChoice(){
  }    
 }
 function getHumanChoice(){
- let choice = prompt("What's your choice?"); // crea una variabile che chiama un prompt per la scelta
-  return choice // ritorna choice
+ let choice = prompt("What's your choice?").toLowerCase(); // crea una variabile che chiama un prompt per la scelta
+ while(!(choice === "rock" || choice === "paper" || choice === "scissors")) {
+   console.log("Invalid input");
+   choice = prompt("What's your choice?").toLowerCase();
+ }
+
+ return choice // ritorna choice
 }
 function playGame(){
   let humanScore = 0;
   let computerScore = 0;  
    
       function playRound(humanChoice, computerChoice){
-        humanChoice = humanChoice.toLowerCase(); // humanChoice deve essere case insensitive
+      //   humanChoice = humanChoice.toLowerCase(); // humanChoice deve essere case insensitive
         if (humanChoice === computerChoice){
           console.log("It's a tie!"); // se humanChoice = computerChoice stampa pareggio in console
  }      else if ((humanChoice === "rock" && computerChoice === "scissors") ||
